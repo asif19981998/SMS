@@ -1,0 +1,360 @@
+<div class="row header" style="height:70px; margin-left:10px; margin-right:10px; border-radius: 20px;background-color:white;">
+  <div class="col-md-6" style="padding-top:15px" >
+      <div style=" text-align: center; color: teal;" *ngIf="showListHeader">
+          <h3 > <b>Purchase List</b></h3>
+
+      </div>
+      <div style=" text-align: center; color: teal;" *ngIf="showSrcHeader">
+          <h3 ><b>Purchase Search</b></h3>
+      </div>
+      <div style="text-align: center; color: teal;" *ngIf="showCrtHeader">
+          <h3 ><b>Purchase Entry</b> </h3>
+      </div>
+    </div>
+    <div class="col-md-6"  style="padding-top:15px;">
+      <div class="row" style="padding-left:150px">
+          <div>
+              <button style="width: 150px;margin-left:4px" class="btn btn-info form-control" *ngIf="showSrcButton" (click)="afterClickSrcButton()" ><i class="fas fa-search"></i></button>
+          </div>  
+          <div>
+              <button  style="width: 150px;margin-left:4px" class="btn btn-success form-control" *ngIf="showCrtButton" (click)="afterClickCrtButton()"><i class="fas fa-plus-circle"></i></button>
+          </div>   
+          <div>
+              <button style="width: 150px;margin-left:4px" class="btn btn-warning form-control" *ngIf="showListButton" (click)="afterClickListButton()"><i class="fas fa-th-list"></i></button>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="advanceSearch row" *ngIf="showSrcForm" >
+     
+    <div class="col-md-12" *ngIf="showSrcBox" >
+        <div class="row" >
+            <div class="col-md-8" *ngIf="showUSrcBtn">
+                <div class="col-md-8 search">
+                    <input type="text" placeholder="   Search.." name="search" [(ngModel)]="search" > 
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <button style="width: 200px;margin-left:4px" class="btn btn-info form-control"  (click)="afterClickAdbtn()" ><i class="fas fa-arrow-circle-down"></i>  Advance Search <i class="fas fa-arrow-circle-down"></i> </button>
+                </div>  
+            </div>
+          </div>
+    </div>
+  </div>   
+    
+    
+    
+    <br/>
+    <div class="col-md-12" *ngIf="showSrcAdvance" style="margin-left: 100px;">
+        <form #advanceForm="ngForm" (submit)="srcPurchase(advanceForm)">
+            <div class="row" >
+              <div class="col-md-6">
+                
+                  <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Search By Name"   name="SupplierName" [(ngModel)]="SupplierName" >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  
+                  <div class="form-group">
+                  <!-- <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Search By Start Date" type="date" name="StartDate" [(ngModel)]="StartDate" >
+                  </mat-form-field> -->
+
+                  <mat-form-field class="example-full-width">
+                    <input matInput [matDatepicker]="picker1" placeholder="Search By Start Date"  name="StartDate" [(ngModel)]="StartDate" >
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                  </mat-form-field>
+                </div>  
+              </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Search By Invoice No" type="text"  name="InvoiceNo" [(ngModel)]="InvoiceNo" >
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                      <!-- <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Search By End Date" type="date"  name="EndDate" [(ngModel)]="EndDate" >
+                      </mat-form-field> -->
+
+                      <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker2" placeholder="Search By End Date"   name="EndDate" [(ngModel)]="EndDate" >
+                        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                
+               
+                </div>
+            
+          
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-info" (click)="afterClickSrcBtn()">Search</button>
+              </div>
+            </div>
+            </form>
+          </div>
+          <br/>
+<form #PurchaseForm="ngForm" *ngIf="showCrtForm" (submit)="onSubmit(PurchaseForm)" style="margin-left: 100px;">
+  
+<div class="row" >
+  <div class="col-md-6">
+      <div class="form-group">
+          <!-- <mat-form-field class="example-full-width">
+            <input matInput placeholder="Date" name="Date" #Date="ngModel" [(ngModel)]="service.purchaseFormData.Date" type="date" class="form-control">
+          </mat-form-field> -->
+
+          <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="picker1" placeholder="Date" name="Date" #Date="ngModel" [(ngModel)]="service.purchaseFormData.Date" >
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+           </div>
+  </div>
+  <div class="col-md-6">
+      <div class="form-group">
+          <mat-form-field class="example-full-width  " >
+            <input matInput placeholder="Invoice No" name="InvoiceNo" #InvoiceNo="ngModel" [(ngModel)]="service.purchaseFormData.InvoiceNo" type="text" >
+          </mat-form-field>
+         </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <div class="form-group" >
+              <!-- <label>Supplier</label>
+              <select (change)="passId($event.target)" class="form-control" name="SupplierName" #SupplierName="ngModel" [(ngModel)]="service.purchaseFormData.SupplierName">
+                <option value="">---select--</option>
+                <option *ngFor="let supplier of supplierList" value="{{supplier.Name}}">{{supplier.Name}}</option>
+              </select> -->
+                
+              <mat-form-field class="example-full-width">
+                <mat-label>Select Supplier</mat-label>
+                <mat-select (change)="passId($event.target)"  name="SupplierName" #SupplierName="ngModel" [(ngModel)]="service.purchaseFormData.SupplierName">
+                  <mat-option *ngFor="let supplier of supplierList" value="{{supplier.Name}}">{{supplier.Name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <input  name="SupplierId" #SupplierId="ngModel" [(ngModel)]="service.purchaseFormData.SupplierId" type="hidden" class="form-control">
+            </div>
+             
+          </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <mat-form-field class="example-full-width" >
+              <input matInput placeholder="GrandTotal" name="GrandTotal" #GrandTotal="ngModel" [(ngModel)]="service.purchaseFormData.GrandTotal" type="text" readonly >
+            </mat-form-field>
+           </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+           <button class="btn btn-success" type="submit">Submit</button>
+        </div>
+  </div>
+
+  
+
+
+
+
+ 
+   
+   
+  
+  
+
+   <!-- Purchase details Table -->
+<br/>
+ <table  class="table table-striped "  >
+  <thead class="bg-info">
+    <th>Code</th>
+    <th>Manufacture Date</th>
+    <th>Expire Date</th>
+    <th>Purchase Quantity</th>
+    <th>Unit Price</th>
+    <th>Total Price</th>
+    <th>New Cost Price</th>
+    <th>New MRP</th>
+    <th> <button type="button" class="btn btn-success" (click)="addOrEditOrderItem()">Add Product</button></th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of service.productDetils">
+      <td>{{product.Name}}</td> 
+      <td>{{product.ManuFactureDate}}</td>
+      <td>{{product.ExpireDate}}</td>
+      <td>{{product.PurchaseQuantity}}</td>
+      <td>{{product.UnitPrice}}</td>
+      <td>{{product.TotalPrice}}</td>
+      <td>{{product.NewCostPrice}}</td>
+      <td>{{product.NewMRP}}</td>
+
+    </tr>
+  </tbody>
+
+</table>
+
+<div class="col-md-6">
+    
+</div>
+  
+</div>
+</form>
+<div class="row" style="margin-top:10px;"  >
+  <div class="col-md-12" >
+     
+      <div>
+          <table class="table table-striped" *ngIf="showListTb" >
+              <thead class="bg-info">
+             
+                <th>Bill No</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>GrandTotal</th>
+                <th>Action</th>
+                
+               
+             
+             
+              </thead>
+              <tbody>
+                <tr *ngFor= "let pur of service.purchaseList |purchase:search ">
+                  
+                  <td >{{pur.InvoiceNo }}</td> 
+                  <td >{{pur.SupplierName }}</td>
+                  <td>{{pur.Date }} </td> 
+                  <td >{{pur.GrandTotal }}</td>
+                
+                  
+                  <td >
+                     <button class="btn btn-warning" (click)="aftClDetialsBtn(pur.Id)"><i class="fas fa-info-circle"></i></button>    
+                     <button class="btn btn-danger" (click)="aftClDeleteBtn(pur.Id)"><i class="fas fa-trash"></i></button> 
+                  </td>
+
+            
+              </tr>
+
+            </tbody>
+           
+          </table>
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</div> <div  style="margin-top:5px" *ngIf="showSrcTb">
+    <div class="row">
+      <div class="col-md-12">
+          <div>
+              <table class="table table-striped"  >
+                  <thead class="bg-info">
+                 
+                    <th>Bill No</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>GrandTotal</th>
+                    <th>Action</th>
+                    
+                   
+                 
+                 
+                  </thead>
+                  <tbody>
+                    <tr *ngFor= "let pur of purchaseDetailList |purchase:search ">
+                      
+                      <td >{{pur.InvoiceNo }}</td> 
+                      <td >{{pur.SupplierName }}</td>
+                      <td>{{pur.Date }} </td> 
+                      <td >{{pur.GrandTotal }}</td>
+                    
+                      
+                      <td >
+                         <button class="btn btn-warning" (click)="aftClDetialsBtn(pur.Id)" ><i class="fas fa-info-circle"></i></button>    
+                         <button class="btn btn-danger" (click)="aftClDeleteBtn(pur.Id)"><i class="fas fa-trash"></i></button> 
+                      </td>
+    
+                
+                  </tr>
+    
+                </tbody>
+               
+              </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+          
+          
+      </div>
+    </div>
+  </div>
+
+
+  <div  style="margin-top:5px" *ngIf="purchaseDtlTb" >
+    <div class="row">
+      <div class="col-md-12">
+          <div>
+              <table class="table table-striped ">
+                  <thead class="bg-info">
+                    <th>Product Name</th>
+                    <th>UnitPrice</th>
+                    <th>PurchaseQuantity</th>
+                    <th>TotalPrice</th>
+                    <th>NewCostPrice</th>
+                    <th>NewMRP</th>
+                    <th>PurchaseDate</th>
+                   
+                </thead>
+                <tbody>
+                    <tr *ngFor="let purchase of purchaseDetailList |paginate:{itemsPerPage:itemPage,currentPage:p}" >
+                   
+                      <td>{{purchase.Name }}</td> 
+                      <td>{{purchase.UnitPrice }}</td>
+                      <td>{{purchase.PurchaseQuantity}} </td> 
+                      <td>{{purchase.TotalPrice }}</td>
+                      <td>{{purchase.NewCostPrice}} </td> 
+                      <td>{{purchase.NewMRP }}</td>
+                      <td>{{purchase.PurchaseDate }}</td>
+                   
+                    </tr>
+                </tbody>
+              </table>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

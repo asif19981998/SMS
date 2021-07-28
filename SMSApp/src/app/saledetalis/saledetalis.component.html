@@ -1,0 +1,70 @@
+
+
+
+
+    <form #saleDetailsFrom="ngForm" (submit)="onSubmit(saleDetailsFrom)" >
+        <h3>Sales</h3>
+        <div class="product">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Product</label>
+                        <!-- <select (change)="viewAvialablequantity($event.target)" name="Name" #Name="ngModel" [(ngModel)]="service.saleDetailsFormData.Name" class="form-control">
+                          <option value="0">--select--</option> 
+                          <option *ngFor="let product of productList" value="{{product.ProductName}}">{{product.ProductName}}</option> 
+                        </select> -->
+                       
+                        <select  (change)="viewAvialablequantity($event.target)" name="Name" #Name="ngModel" [(ngModel)]="service.saleDetailsFormData.Name"  class="form-control" style="width:250px">
+                            <option value=" ">--select--</option>
+                            <option  *ngFor="let product of productList" value="{{product.ProductName}}">{{product.ProductName}}</option> 
+                          </select>
+                        
+                          <!-- <mat-form-field class="example-full-width">
+                                <mat-label>Select Product</mat-label>
+                                <mat-select (change)="viewAvialablequantity($event.target)" name="Name" #Name="ngModel" [(ngModel)]="service.saleDetailsFormData.Name"  >
+                                       
+                                  <mat-option *ngFor="let product of productList" value="{{product.ProductName}}">{{product.ProductName}}</mat-option>
+                                </mat-select>
+                              </mat-form-field> -->
+                      </div>    
+                </div>
+                <input type="hidden" name="Code" #Code="ngModel" [(ngModel)]="service.saleDetailsFormData.Code" class="form-control" >
+                <div class="col-md-6">
+                    <div class="form-group">
+                      
+                    <mat-form-field  class="example-full-width">
+                        <input matInput placeholder="Available Quantity" type="text" name="AvailableQuantity" #AvailableQuantity="ngModel" [(ngModel)]="service.saleDetailsFormData.AvailableQuantity" readonly >
+                    </mat-form-field>
+                        
+                      </div>
+                </div>
+              </div>  
+              <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Quantity" type="text" name="Quantity" #Quantity="ngModel" [(ngModel)]="service.saleDetailsFormData.Quantity"  >
+                    </mat-form-field>
+                       
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                      
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Unit Price" type="text" name="UnitPrice" #UnitPrice="ngModel" [(ngModel)]="service.saleDetailsFormData.UnitPrice" readonly >
+                    </mat-form-field>
+                    </div>
+                </div>
+              </div> 
+              <div>
+                  <button type="submit" class="btn btn-warning" (click)="showTable()">Add</button>
+              </div>
+        </div>
+    </form>
+
+
+
+
+

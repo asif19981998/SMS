@@ -1,0 +1,43 @@
+mat-sidenav-container{
+    height: 780px;
+ 
+    
+}
+mat-sidenav,mat-sidenav-content{
+    padding: 10px;
+    
+}
+
+mat-sidenav{
+    background-color:teal;
+    width: 200px;
+   
+
+}
+
+.home{
+    /* background-image: url("C:\Users\Lenovo\Desktop\ASIFDO\SMSApp\e2e\image\3.gif");  */
+    background-color: #17A2B8; 
+    transition: all .2s ease-in-out;
+    height:500px; width: 1300px; position: center;
+    background-repeat: no-repeat;
+    background-size: 1300px 500px;
+}
+.hc{
+    height: 250px;
+	width: 650px;
+	float: right;
+	background: #17A2B8;
+    margin-right: 700px;
+    margin-top: 100px;
+	border-radius: 50px; 
+	transition: all .2s ease-in-out;
+	text-align: center;
+	color: black; 
+}
+.navbar-nav li a {
+    font-stretch: extra-condensed;
+    font-style: italic;
+    font-weight: bold;
+}
+

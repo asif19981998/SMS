@@ -1,0 +1,89 @@
+.container{
+    margin: 0;
+    max-width:1352px;
+}
+
+.header {
+    text-align: center;
+    font-family: sans-serif;
+    background-color: #1abc9c;
+    font-style: oblique;
+    height: 75px;
+    font-weight: bolder;
+    padding: 7px 60px 10px 60px;
+    margin-bottom: 5px;
+    margin-top:-16px;
+}
+.search input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: white;
+     background-image: url("src\app\icon\search(23).png");
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 11px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  .in input[type=text]{
+    width: 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+  .in input[type=textarea]{
+    width: 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  }
+ .search input[type=text]:focus {
+    width: 100%;
+  }
+  .in input[type=text]:focus {
+    width: 50%;
+  }
+  .in input[type=textarea]:focus {
+    width: 50%;
+  }
+ .advanceSearch .form-group input {
+      width: 300px;
+  }
+  ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #17A2B8 !important;
+    width: 100%;
+  } 
+  
+   ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #17A2B8 !important;
+   }
+  
+   ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: #17A2B8 !important;
+  }
+  .example-full-width   {
+    width: 70%;
+    margin-top:-40px;
+    
+    
+  }
+
+  .table {
+
+    width: 110%;
+    margin-bottom: 1rem;
+    color: #212529;
+
+}
+  .table td {
+      padding-left:0;
+      padding-bottom: .50em;
+  }
+  .table th {
+    padding-left:0;
+    padding-bottom: .50em;
+}

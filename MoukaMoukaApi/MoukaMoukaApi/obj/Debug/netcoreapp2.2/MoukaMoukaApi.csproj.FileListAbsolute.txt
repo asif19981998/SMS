@@ -1,0 +1,58 @@
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.deps.json
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.json
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.dev.json
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.csproj.CoreCompileInputs.cache
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cache
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cs
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfoInputs.cache
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfo.cs
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorTargetAssemblyInfo.cache
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+E:\OFFICE\New folder (2)\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.csprojAssemblyReference.cache
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.deps.json
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.json
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.dev.json
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.csproj.CoreCompileInputs.cache
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cache
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cs
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfoInputs.cache
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfo.cs
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorTargetAssemblyInfo.cache
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+C:\Users\shafi\Desktop\final SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.csprojAssemblyReference.cache
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.deps.json
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.json
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.dev.json
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.csproj.CoreCompileInputs.cache
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cache
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cs
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfoInputs.cache
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfo.cs
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorTargetAssemblyInfo.cache
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+C:\Users\shafi\Desktop\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\appsettings.Development.json
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\appsettings.json
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.deps.json
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.json
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.runtimeconfig.dev.json
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.dll
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\bin\Debug\netcoreapp2.2\MoukaMoukaApi.pdb
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfoInputs.cache
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.AssemblyInfo.cs
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.csproj.CoreCompileInputs.cache
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cache
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorAssemblyInfo.cs
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.RazorTargetAssemblyInfo.cache
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.genruntimeconfig.cache
+E:\Angular(2-15-2021)\final-SMS\MoukaMoukaApi\MoukaMoukaApi\obj\Debug\netcoreapp2.2\MoukaMoukaApi.csproj.AssemblyReference.cache

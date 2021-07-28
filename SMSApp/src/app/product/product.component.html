@@ -1,0 +1,415 @@
+<div class="row header" style="height:70px; margin-left:10px; margin-right:10px; border-radius: 20px;background-color:white;">
+    <div class="col-md-6" style="padding-top:15px" >
+        <div style=" text-align: center; color: teal;;" *ngIf="showListHeader">
+            <h3 ><b>Product List</b></h3>
+        </div>
+        <div style=" text-align: center; color: teal;;" *ngIf="showSrcHeader">
+            <h3 ><b>Product Search</b></h3>
+        </div>
+        <div style="text-align: center; color: teal;;" *ngIf="showCrtHeader">
+            <h3 > <b>Product Entry</b></h3>
+        </div>
+      </div>
+      <div class="col-md-6"  style="padding-top:15px;">
+        <div class="row" >
+            <!-- <div>
+                <button style="width: 150px;margin-left:4px" class="btn btn-warning form-control" *ngIf="showListMode" (click)="afterClickListMode()"><i class="fas fa-th-list"></i></button>
+            </div> -->
+            <div>
+                <button style="width: 150px;margin-left:4px" class="btn btn-info form-control" *ngIf="showSrcButton" (click)="afterClickSrcButton()" ><i class="fas fa-search"></i></button>
+            </div>  
+            <div>
+                <button  style="width: 150px;margin-left:4px" class="btn btn-success form-control" *ngIf="showCrtButton" (click)="afterClickCrtButton()"><i class="fas fa-plus-circle"></i></button>
+            </div>   
+            <div>
+                <button style="width: 150px;margin-left:4px" class="btn btn-warning form-control" *ngIf="showListButton" (click)="afterClickListButton()"><i class="fas fa-th-list"></i></button>
+            </div>
+ 
+        </div>
+          
+              
+      </div>
+           
+           
+ </div>
+
+ <div class="advanceSearch row" *ngIf="showSrcForm" >
+     
+    <div class="col-md-12" *ngIf="showSrcBox" >
+        <div class="row" >
+            <div class="col-md-8" *ngIf="showUSrcBtn">
+                <div class="col-md-8 search">
+                    <input type="text" placeholder="   Search.." name="search" [(ngModel)]="search" > 
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <button style="width: 200px;margin-left:4px" class="btn btn-info form-control"  (click)="afterClickAdbtn()" ><i class="fas fa-arrow-circle-down"></i> Advance Search <i class="fas fa-arrow-circle-down"></i></button>
+                </div>  
+            </div>
+          </div>
+    </div>
+   
+    <div class="col-md-12" *ngIf="showSrcAdvance" style="margin-left: 100px;">
+        <form #advanceForm="ngForm" (submit)="srProduct(advanceForm)">
+            <div class="row" >
+              <div class="col-md-6">
+                
+                  <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Search By Name"   name="Name" [(ngModel)]="Name" >
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  
+                  <div class="form-group">
+                  <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Search By CategoryName"   name="CategoryName" [(ngModel)]="CategoryName" >
+                  </mat-form-field>
+                </div>  
+              </div>
+            </div>
+            <div class="row" >
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Search By Unit Price"   name="UnitPrice" [(ngModel)]="UnitPrice" >
+                    </mat-form-field>
+                  </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <!-- <mat-form-field class="example-full-width">
+                      <input matInput type="date" placeholder="Search By Manufacture Date"   name="ManufactureDate" [(ngModel)]="ManufactureDate" >
+                    </mat-form-field> -->
+
+                    <mat-form-field class="example-full-width">
+                      <input matInput [matDatepicker]="picker1" placeholder="Search By Manufacture Date"   name="ManufactureDate" [(ngModel)]="ManufactureDate">
+                      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                    </div>
+                    </div>
+                </div>
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <!-- <mat-form-field class="example-full-width">
+                      <input matInput type="date" placeholder="Search By Expire Date"   name="ExpireDate" [(ngModel)]="ExpireDate" >
+                    </mat-form-field> -->
+                    
+                    <mat-form-field class="example-full-width">
+                      <input matInput [matDatepicker]="picker2" placeholder="Search By Expire Date"   name="ExpireDate" [(ngModel)]="ExpireDate">
+                      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                      <mat-datepicker #picker2></mat-datepicker>
+                    </mat-form-field>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <input matInput  placeholder="Search By Reorder Level"   name="ReorderLevel" [(ngModel)]="ReorderLevel" >
+                    </mat-form-field>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-info" (click)="afterClickSrcBtn()">Search</button>
+              </div>
+            </div>
+            </form>
+          </div>
+    
+    
+    </div>
+    <br/>
+    <div style="margin-left: 100px;">
+    <form #productFrom="ngForm" *ngIf="showCrtForm"   autocomplete="off" (submit)="onSubmit(productFrom)" >
+        <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="_stockManageService.productFormData.Id">
+        <div class="row">
+      
+            <div class="form-group col-md-6">
+             
+               
+<!--                   
+                    <select (change)="passCtId($event.target)" style="height: 40px;" name="CategoryName" #CategoryName="ngModel" [(ngModel)]="_stockManageService.productFormData.CategoryName" class="form-control"  >
+                       <option value="0">--Select Category--</option>
+                       <option  *ngFor="let category of _stockManageService.categoryList"  value="{{category.Name}}">{{category.Name}}</option>
+                     </select> -->
+                     <div class="col-md-10">
+                     <mat-form-field class="example-full-width">
+                        <mat-label>Select Category</mat-label>
+                        <mat-select (change)="passCtId($event.target)"  name="CategoryName" #CategoryName="ngModel" [(ngModel)]="_stockManageService.productFormData.CategoryName" >
+                          <mat-option *ngFor="let category of _stockManageService.categoryList" value="{{category.Name}}">{{category.Name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-2">
+                      <input type="hidden" name="CategoryId" #CategoryId="ngModel" [(ngModel)]="_stockManageService.productFormData.CategoryId" class="form-control" >
+                <div class="col-md-offset-4"  style="height: 40px;">
+                    <input type="button" (click)="categoryPopup()" value="+">
+                </div>
+              </div>
+           
+            
+              
+            </div>
+            <div class="form-group col-md-6">
+                <mat-form-field class="example-full-width">
+                   <input matInput placeholder="Code" name="Code" #Code="ngModel" [(ngModel)]="_stockManageService.productFormData.Code"
+                    [ngClass]="{'is-invalid': Code.touched && Code.invalid}" required >
+                  <div class="invalid-feedback">
+                    <div>Code must require</div>
+                  </div>
+                 </mat-form-field>
+               </div>
+            
+            </div>
+        <div class="row">
+       
+        <div class="form-group col-md-6">
+         
+            <mat-form-field class="example-full-width">
+               <input matInput placeholder="Name"  name="Name" #Name="ngModel" [ngClass]="{'is-invalid':Name.touched && Name.invalid}"
+               [(ngModel)]="_stockManageService.productFormData.Name"  required>
+            <div class="invalid-feedback">
+               <div>Name must require</div>
+            </div>
+             </mat-form-field>
+          </div>
+          <div class="form-group col-md-6">
+      
+              <mat-form-field style="padding-top: 10px;" class="example-full-width">
+                <input matInput placeholder="Unit Price" name="UnitPrice" #UnitPrice="ngModel" [(ngModel)]="_stockManageService.productFormData.UnitPrice" >
+              </mat-form-field>
+            </div>
+       
+       </div>
+
+    <div class="row" style="margin-top: 10px;">
+      
+      <div class="form-group col-md-6">
+
+        
+          <div class="example-full-width" style="padding-top: 14px;">
+            <label>Image Upload</label>
+            <input   type="file" class="form-control"  id="fileUploaderImage" (change)="fileChangeImage($event)" >
+          </div> 
+      </div>
+      <div class="form-group col-md-6">
+          <!-- <mat-form-field class="example-full-width">
+              <input matInput placeholder="Manufacture Date"  name="ManufactureDate" #ManufactureDate="ngModel" [(ngModel)]="_stockManageService.productFormData.ManuFactureDate" 
+                       required>
+            </mat-form-field>  -->
+       
+           <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker1" [min]="MinDate" [max]="MaxDate" placeholder="Manufacture Date"  name="ManufactureDate" #ManufactureDate="ngModel" [(ngModel)]="_stockManageService.productFormData.ManuFactureDate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+                       
+        
+         
+       </div>
+      </div>
+      <div class="row">
+      
+      <div class="form-group col-md-6">
+          <!-- <mat-form-field class="example-full-width">
+              <input matInput placeholder="Expire Date"   name="ExpireDate" #ExpireDate="ngModel" [(ngModel)]="_stockManageService.productFormData.ExpireDate" >
+            </mat-form-field> -->
+
+            <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker2" [min]="minDate" [max]="maxDate" placeholder="Expire Date"   name="ExpireDate" #ExpireDate="ngModel" [(ngModel)]="_stockManageService.productFormData.ExpireDate">
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+              </mat-form-field>
+      
+      </div>
+      <div class="form-group col-md-6">
+       
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="Reorder Level" name="ReorderLevel" #ReorderLevel="ngModel" [(ngModel)]="_stockManageService.productFormData.ReorderLevel" >
+            </mat-form-field>
+      
+       
+      </div>
+      </div>
+      <div class="row">
+   
+      <div class="form-group col-md-6">
+       
+          <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Description" name="Description" #Description="ngModel" [(ngModel)]="_stockManageService.productFormData.Description" ></textarea>
+             </mat-form-field>
+       
+      </div>
+      </div>
+      
+      
+      <div >
+        <button type="submit" class="btn btn-success" [disabled]="Code.invalid || Name.invalid">Submit</button>
+      </div>
+    
+      </form>
+    </div>
+      <br/>
+      <div class="col-md-12" >
+          <div class="col-md-11">
+              <table class="table table-striped " *ngIf="showListTb"> 
+                  <thead class="bg-info">
+                
+                    <th>Serial No</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Unit Price</th>
+                    
+                    <th>Manufacture Date</th>
+                    <th>Expire Date</th>
+                    <th>ReorderLevel</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let i=index;let cd of _stockManageService.productList |product:search| paginate:{itemsPerPage:itemsPerPage,currentPage:p}">
+                   
+                    <td>{{i+1}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.Code}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.Name}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" ><img src="{{cd.ImageStr}}" style="height:50px;width:50px"></td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.CategoryName}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.UnitPrice}}</td>   
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.ManuFactureDate}}</td>   
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.ExpireDate}}</td>   
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.ReorderLevel}}</td>   
+                    <td   *ngIf="!showInuput" (click)="edit()">{{cd.Description}}</td> 
+                    <td  *ngIf="!showInuput" (click)="edit()">
+                        <!-- <button  (click)="updateproduct(cd.Id,cd.Code,
+                        cd.Name,cd.ImageStr,cd.CategoryName,cd.UnitPrice,cd.ManuFactureDate,cd.ReorderLevel,cd.Description)" (click)="afterClEditBtn()">Edit</button>   -->
+                        <button  class="btn btn-danger"  (click)="onDelete(cd.Id)"><i class="fas fa-trash"></i></button>
+                    </td>  
+                   
+                          <td class="in" ><input *ngIf="showInuput"   type="text" [(ngModel)]="cd.Code" class="form-control"></td>
+                          <td class="in" ><input *ngIf="showInuput"  type="text" [(ngModel)]="cd.Name" class="form-control"></td>
+                          <td class="in" ><input type="file" *ngIf="showInuput"  [(ngModel)]="cd.ImageStr" class="form-control"></td>
+                          <td class="in" ><input *ngIf="showInuput" type="text" [(ngModel)]="cd.CategoryName"  class="form-control"></td>
+                          <td class="in"><input *ngIf="showInuput"  type="text" [(ngModel)]="cd.UnitPrice"  class="form-control"></td>
+                          <td class="in"><input type="date" *ngIf="showInuput"  [(ngModel)]="cd.ManuFactureDate"  class="form-control"></td>
+                          <td class="in"><input type="date" *ngIf="showInuput"  [(ngModel)]="cd.ExpireDate"  class="form-control"></td>
+                          <td class="in" ><input *ngIf="showInuput"  type="text" [(ngModel)]="cd.ReorderLevel"  class="form-control"></td>
+                          <td class="in"><textarea *ngIf="showInuput"  type="text" [(ngModel)]="cd.Description"  class="form-control"></textarea></td>
+                          <td>
+                              <button class="btn btn-warning" *ngIf="showInuput" (click)="updateproduct(cd.Id,cd.Code,
+                             cd.Name,cd.ImageStr,cd.CategoryName,cd.UnitPrice,cd.ManuFactureDate,cd.ExpireDate,cd.ReorderLevel,cd.Description)" (click)="afterClEditBtn()"><i class="fas fa-pen-square"></i></button>  
+                             <button class="btn btn-danger" *ngIf="showInuput"   (click)="onDelete(cd.Id)"><i class="fas fa-trash"></i></button>
+                          </td>
+                        
+                   
+              
+                  
+            
+                   
+                   
+                  </tr>
+                  
+                </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      
+        <div  style="margin-top:5px" *ngIf="showSrcTb">
+          <div class="row">
+            <div class="col-md-12">
+              <table class="table table-hover container" *ngIf="showSrcTb">
+                  <tr>
+                    <th>Serial No</th>
+                    <th>Code</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Category</th>
+                    <th>Unit Price</th>
+                    
+                    <th>Manufacture Date</th>
+                    <th>Expire Date</th>
+                    <th>ReorderLevel</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                  </tr>
+                  <tr *ngFor="let i=index;let cd of _stockManageService.srProductList | paginate:{itemsPerPage:itemsPerPage,currentPage:p}">
+                   
+                    <td>{{i+1}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.Code}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.Name}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" ><img src="{{cd.ImageStr}}" style="height:20px;width:20px"></td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.CategoryName}}</td>
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.UnitPrice}}</td>   
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.ManuFactureDate}}</td>   
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.ExpireDate}}</td>   
+                    <td  *ngIf="!showInuput" (click)="edit()" >{{cd.ReorderLevel}}</td>   
+                    <td   *ngIf="!showInuput" (click)="edit()">{{cd.Description}}</td> 
+                    <td  *ngIf="!showInuput" (click)="edit()">
+                        <button  (click)="updateproduct(cd.Id,cd.Code,
+                        cd.Name,cd.ImageStr,cd.CategoryName,cd.UnitPrice,cd.ManuFactureDate,cd.ReorderLevel,cd.Description)" (click)="afterClEditBtn()">Edit</button>  
+                        <button    (click)="onDelete(cd.Id)">Delete</button>
+                    </td>  
+                   
+                          <td  ><input *ngIf="showInuput"  style="width:100px;" type="text" [(ngModel)]="cd.Code" class="form-control"></td>
+                          <td ><input *ngIf="showInuput" style="width:100px;" type="text" [(ngModel)]="cd.Name" class="form-control"></td>
+                          <td ><input type="file" *ngIf="showInuput" style="width:100px;" [(ngModel)]="cd.ImageStr" class="form-control"></td>
+                          <td ><input *ngIf="showInuput"style="width:100px;" type="text" [(ngModel)]="cd.CategoryName"  class="form-control"></td>
+                          <td><input *ngIf="showInuput" style="width:100px;" type="text" [(ngModel)]="cd.UnitPrice"  class="form-control"></td>
+                          <td><input type="date" *ngIf="showInuput"style="width:100px;"  [(ngModel)]="cd.ManuFactureDate"  class="form-control"></td>
+                          <td><input type="date" *ngIf="showInuput" style="width:100px;" [(ngModel)]="cd.ExpireDate"  class="form-control"></td>
+                          <td ><input *ngIf="showInuput" style="width:100px;" type="text" [(ngModel)]="cd.ReorderLevel"  class="form-control"></td>
+                          <td><textarea *ngIf="showInuput" style="width:100px;" type="text" [(ngModel)]="cd.Description"  class="form-control"></textarea></td>
+                          <td>
+                              <button *ngIf="showInuput" (click)="updateproduct(cd.Id,cd.Code,
+                             cd.Name,cd.ImageStr,cd.CategoryName,cd.UnitPrice,cd.ManuFactureDate,cd.ExpireDate,cd.ReorderLevel,cd.Description)" (click)="afterClEditBtn()">Edit</button>  
+                             <button  *ngIf="showInuput"   (click)="onDelete(cd.Id)">Delete</button>
+                          </td>
+                        
+                   
+              
+                  
+            
+                   
+                   
+                  </tr>
+                  
+                 
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,335 @@
+<div class="row header" style="height:70px; margin-left:10px; margin-right:10px; border-radius: 20px;background-color:white;">
+    <div class="col-md-6" style="padding-top:15px" >
+        <div style=" text-align: center; color: teal;" *ngIf="showListHeader">
+            <h3 ><b>Sales List</b></h3>
+        </div>
+        <div style=" text-align: center; color: teal;" *ngIf="showSrcHeader">
+            <h3 ><b>Sale Search</b></h3>
+        </div>
+        <div style="text-align: center; color: teal;" *ngIf="showCrtHeader">
+            <h3 > <b>Sales Entry</b></h3>
+        </div>
+      </div>
+      <div class="col-md-6"  style="padding-top:15px;">
+        <div class="row" style="padding-left:150px">
+            <div>
+                <button style="width: 150px;margin-left:4px" class="btn btn-info form-control" *ngIf="showSrcButton" (click)="afterClickSrcButton()" ><i class="fas fa-search"></i></button>
+            </div>  
+            <div>
+                <button  style="width: 150px;margin-left:4px" class="btn btn-success form-control" *ngIf="showCrtButton" (click)="afterClickCrtButton()"><i class="fas fa-plus-circle"></i></button>
+            </div>   
+            <div>
+                <button style="width: 150px;margin-left:4px" class="btn btn-warning form-control" *ngIf="showListButton" (click)="afterClickListButton()"><i class="fas fa-th-list"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="advanceSearch row" *ngIf="showSrcForm" >
+     
+    <div class="col-md-12" *ngIf="showSrcBox" >
+        <div class="row" >
+            <div class="col-md-8" *ngIf="showUSrcBtn">
+                <div class="col-md-8 search">
+                    <input type="text" placeholder="   Search.." name="search" [(ngModel)]="search" > 
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div>
+                    <button style="width: 200px;margin-left:4px" class="btn btn-info form-control"  (click)="afterClickAdbtn()" ><i class="fas fa-arrow-circle-down"></i>  Advance Search <i class="fas fa-arrow-circle-down"></i> </button>
+                </div>  
+            </div>
+          </div>
+    </div>
+   
+    
+    
+    
+    </div>
+<div class="col-md-12" *ngIf="showSrcAdvance" style="margin-left: 100px;">
+    <form #advanceForm="ngForm" (submit)="srcSales(advanceForm)">
+        <div class="row" >
+          <div class="col-md-6">
+            
+              <div class="form-group">
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Search By Code"   name="CustomerName" [(ngModel)]="CustomerName" >
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-6">
+              
+              <div class="form-group">
+              <!-- <mat-form-field class="example-full-width">
+                <input matInput placeholder="Search By Start Date" type="date" name="StartDate" [(ngModel)]="StartDate" >
+              </mat-form-field> -->
+
+              <mat-form-field class="example-full-width">
+                <input matInput [matDatepicker]="picker1" placeholder="Search By Start Date"  name="StartDate" [(ngModel)]="StartDate">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+            </div>  
+          </div>
+        </div>
+        <div class="row" >
+            <div class="col-md-6">
+              <div class="form-group">
+                <!-- <mat-form-field class="example-full-width">
+                  <input matInput placeholder="Search By End Date" type="date"  name="EndDate" [(ngModel)]="EndDate" >
+                </mat-form-field> -->
+
+                <mat-form-field class="example-full-width">
+                  <input matInput [matDatepicker]="picker2" placeholder="Search By End Date"   name="EndDate" [(ngModel)]="EndDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+            
+           
+            </div>
+        
+      
+        <div class="row">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-info" (click)="afterClickSrcBtn()">Search</button>
+          </div>
+        </div>
+        </form>
+      </div>
+
+<div class="row" style="margin-top:10px;" *ngIf="showListTb" >
+    <div class="col-md-12" >
+       
+        <div class="col-md-10">
+            <table class="table table-striped"  *ngIf="showListTb">
+                <thead class="bg-info">
+               
+                  <th>Name</th>
+                  <th>Date</th>
+                  <th>Loyality Point</th>
+                  <th>GrandTotal</th>
+                  <th>Pay</th>
+                  <th>Due</th>
+                  <th>Action</th>
+                 
+               
+               
+                </thead>
+                <tbody>
+                  <tr *ngFor= "let customer of _stockManageService.saleList|sales:search |paginate:{itemsPerPage:itemPage,currentPage:p} ">
+                    
+                    <td style="display:none;" >{{customer.Id }}</td> 
+                    <td >{{customer.CustomerName }}</td>
+                    <td>{{customer.Date }} </td> 
+                    <td >{{customer.LoyalityPoint }}</td>
+                    <td>{{customer.GrandTotal}}</td>
+                    <td >{{customer.Paid }} </td>
+                    <td >{{customer.Due }} </td>
+                     
+                    <td >
+                       <button class="btn btn-warning"  (click)="aftClDetialsBtn(customer.Id)" ><i class="fas fa-info-circle"></i></button>    
+                       <button class="btn btn-danger" (click)="aftClDeleteBtn(customer.Id)"><i class="fas fa-trash"></i></button> 
+                    </td>
+
+                    <!-- <td *ngIf="customer.Id === rowNumber"><input style="width:50px;" type="text" [(ngModel)]="customer.Code"></td>
+                    <td *ngIf="customer.Id === rowNumber"><input style="width:65px;" type="text" [(ngModel)]="customer.Name"></td>
+                    <td *ngIf="customer.Id === rowNumber"><input style="width:50px;" type="text" [(ngModel)]="customer.Address"></td>
+                    <td *ngIf="customer.Id === rowNumber"><input style="width:80px;" type="text" [(ngModel)]="customer.Email"></td>
+                    <td *ngIf="customer.Id === rowNumber"><input style="width:80px;" type="text" [(ngModel)]="customer.Contact"></td>
+                    <td *ngIf="customer.Id === rowNumber"><input style="width:40px;" type="text" [(ngModel)]="customer.LoyalityPoint"></td>
+                    <td >
+                        <button *ngIf="customer.Id === rowNumber" (click)="updateCustomer(customer.Id,customer.Code,
+                        customer.Name,customer.Address,customer.Email,customer.Contact,customer.LoyalityPoint)">Edit</button>  
+                    </td> -->
+                </tr>
+
+              </tbody>
+             
+            </table>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+      </div>
+  </div>
+
+  <form  #salesFrom="ngForm" (submit)="onSubmit(salesFrom)" *ngIf="showCrtForm" style="margin-left: 100px;">
+      <div class="customer">
+        <h3>Customer</h3>
+           <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <!-- <label>Customer</label>
+                      <select (change)="addCId($event.target)" name="CustomerName" #CustomerName="ngModel" [(ngModel)]="_stockManageService.salesFormData.CustomerName" class="form-control" style="width:250px">
+                        <option value=" ">--select--</option>
+                        <option *ngFor="let customer of customerList" value="{{customer.Name}}">{{customer.Name}}</option> 
+                      </select> -->
+
+                      <mat-form-field class="example-full-width">
+                          <mat-label>Select Customer</mat-label>
+                          <mat-select (change)="addCId($event.target)" name="CustomerName" #CustomerName="ngModel" [(ngModel)]="_stockManageService.salesFormData.CustomerName"  >
+                            <mat-option *ngFor="let customer of customerList" value="{{customer.Name}}">{{customer.Name}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                  </div>
+              </div>
+              <input type="hidden" name="CustomerId" #CustomerId="ngModel" [(ngModel)]="_stockManageService.salesFormData.CustomerId" class="form-control" >
+               
+           
+            
+              <div class="col-md-6">
+                  <div class="form-group">
+                    <!-- <div class="form-group">
+                        
+                        <mat-form-field class="example-full-width">
+                        <input matInput  placeholder="Sale Date" type="date" name="Date" #Date="ngModel" [(ngModel)]="_stockManageService.salesFormData.Date" class="form-control" >
+                        </mat-form-field>
+                      </div> -->
+                      <mat-form-field class="example-full-width">
+                          <input matInput [matDatepicker]="picker1"  placeholder="Sale Date"  name="Date" #Date="ngModel" [(ngModel)]="_stockManageService.salesFormData.Date" class="form-control"  required>
+                          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                          <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                      
+                  </div>
+              </div>
+            </div>  
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <!-- <label>Loyality Point</label> -->
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Loyality Point" type="text" name="LoyalityPoint" #LoyalityPoint="ngModel" [(ngModel)]="_stockManageService.salesFormData.LoyalityPoint" >
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                    
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Grand Total" type="text" name="GrandTotal" #GrandTotal="ngModel" [(ngModel)]="_stockManageService.salesFormData.GrandTotal"  readonly>
+                    </mat-form-field>
+                     
+                  </div>
+              </div>
+            </div>  
+          
+          <div class="row"> 
+              <div class="col-md-6">
+                  <div class="form-group">
+                 
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Paid" type="text" (keyup)="updatedue()" name="Paid" #Paid="ngModel" [(ngModel)]="_stockManageService.salesFormData.Paid"  >
+                      </mat-form-field>
+                     
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                   
+                      <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Due" type="text" name="Due" #Due="ngModel" [(ngModel)]="_stockManageService.salesFormData.Due"  readonly >
+                      </mat-form-field>
+                      
+                  </div>
+              </div>
+            </div>   
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" (click)="afterClSaveBtn()" >Save</button>
+            </div> 
+      </div>
+      <div class="Detail">
+        <div class="row">
+            <div class="col-md-12">
+                <app-saledetalis></app-saledetalis>  
+            </div>
+        </div>
+        
+      </div>
+      <div class="row" *ngIf="showSaleDts" >
+          <table class="table table-striped ">
+              <thead class="bg-info">
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>UnitPrice</th>
+                <th>Total Price</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of _stockManageService.salesDetails | paginate:{itemsPerPage:itemPage,currentPage:p}">
+                  <td>{{product.Name}}</td>
+                  <td>{{product.Quantity}}</td>
+                  <td>{{product.UnitPrice}}</td>
+                  <td>{{product.Quantity*product.UnitPrice}}</td>
+                </tr>
+              </tbody>
+              
+          </table>  
+          <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+    </form>
+    
+    <div  style="margin-top:5px" *ngIf="showSrcTb">
+      <div class="row">
+        <div class="col-md-12">
+            <div>
+                <table class="table table-striped ">
+                    <thead class="bg-info">
+                      <th>Name</th>
+                      <th>Date</th>
+                      <th>Loyality Point</th>
+                      <th>GrandTotal</th>
+                      <th>Pay</th>
+                      <th>Due</th>
+                      <th>Action</th>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let sale of srcSaleList | paginate:{itemsPerPage:itemPage,currentPage:p}" >
+                     
+                        <td>{{sale.CustomerName }}</td> 
+                        <td>{{sale.Date }}</td>
+                        <td>{{sale.LoyalityPoint }} </td> 
+                        <td>{{sale.GrandTotal }}</td>
+                        <td>{{sale.Pay }}</td>
+                        <td>{{sale.Due }}</td>
+                        <td>{{sale.Action}}</td>
+                      </tr>
+                  </tbody>
+                </table>
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            
+            
+        </div>
+      </div>
+    </div>
+
+    <div  style="margin-top:5px" *ngIf="saleDetailsTb" >
+        <div class="row">
+          <div class="col-md-12">
+              <div>
+                  <table class="table table-striped ">
+                      <thead class="bg-info">
+                        <th>Product Name</th>
+                        <th>Available Quantity</th>
+                        <th>Quantity</th>
+                        <th>UnitPrice</th>
+                       
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let sale of saleDetails |paginate:{itemsPerPage:itemPage,currentPage:p}" >
+                       
+                          <td>{{sale.Name }}</td> 
+                          <td>{{sale.AvailableQuantity }}</td>
+                          <td>{{sale.Quantity}} </td> 
+                          <td>{{sale.UnitPrice }}</td>
+                       
+                        </tr>
+                    </tbody>
+                  </table>
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+              </div>
+              
+              
+          </div>
+        </div>
+      </div>

@@ -1,0 +1,55 @@
+1)Category...........
+
+    1.CategoryId-int,
+    2.Code-string,
+    3.Name-string
+
+2)Product...........
+    1.ProductId-int,
+    2.Code-string,
+    3.Name-string,
+    4.ReOrderLevel-------------,
+    5.Description-string,
+    6.ProductImage-string,
+    7.CategoryId-int
+
+3)Purchase.......
+
+	1.PuchaseId-int,  
+	2.SupplierDate-datetime,
+	3.Bill/InvoiceNo--string,
+	4.SupplierId-int,
+	5.ProductId-int,
+	6.code-string,
+	7.ManufacturedDate-datetime,
+	8.ExpireDate-datetime,
+	9. PurchasedQuantity--string,
+	10.UnitPrice -int,[Unit Costing Calculation Formula: New MRP = 25% of Unit Cost]
+	11.TotalPrice-int,
+	12.PriviousCostPrice-int,
+	13.PriviousMRP-int,
+	14.NewCostPrice-int,
+	15.NewMRP-int
+
+4)Supplier.............
+	1.SupplierId-int,
+	2.code-string,
+	3.Name-string,
+	4.Address-string,
+	5.Contact-string,
+	6.ContactPerson-string,
+	7.Image-string,
+	8.Email-string
+
+5)Customer...........
+	1.CustomerId-int,
+	2.code-string,
+	3.Name-string,
+	4.Address-string,
+	5.Contact-string,
+	6.LoyaltyPoint--------------------,
+	7.Image-string,
+	8.Email-string
+
+    
+   

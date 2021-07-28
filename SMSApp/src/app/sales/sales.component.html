@@ -1,0 +1,174 @@
+
+
+<div class="container">
+    <div class="header">
+        <div class="row">
+          <div class="col-md-8" *ngIf="customerHeader" >
+              <h3 style="font-weight: bold;font-size:35px">Sales Report</h3> 
+          </div> 
+          <div class="col-md-8" *ngIf="!customerHeader" >
+              <h3 style="font-weight: bold;font-size:35px">Search In Sales </h3> 
+          </div> 
+          <div class="col-md-4 search" >
+            <div class="row">
+              <div class="col-md-6">
+                  <input type="text" placeholder=" Search.." *ngIf="!opened"  name="search" [(ngModel)]="search"> 
+              </div>
+              <div class="col-md-6">
+                  <button class="btn btn-info form-control" *ngIf="advanceButton" (click)="open()" style="font-size:14px;width:150px; height:47px;font-weight:bolder"> Search on here</button>
+                  <button class="btn btn-danger form-control" *ngIf="!advanceButton" (click)="close()" style="font-size:14px;width:150px;  height:47px;font-weight:bolder">Close sales search List </button>
+              </div>
+            </div>
+           
+           
+           
+          </div> 
+        </div>
+      </div>  
+             <!-- Advance Search Start Here -->
+      <div class="advanceSearch" *ngIf="!opened" >
+    
+          <div class="row">
+            <div class="col-md-6">
+              
+                <div class="form-group">
+                <label>Product Name</label>
+                <input type="text"  placeholder="   Search By ProductName.." name="searchProductName" [(ngModel)]="searchProductName" class="form-control" >
+              </div>
+            </div>
+            <div class="col-md-6">
+                
+                <div class="form-group">
+                <label>Quantity</label>
+                <input type="number"  placeholder="   Search By Quantity.." name="searchQuantity" [(ngModel)]="searchQuantity" class="form-control" >
+              </div>  
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Unit Price</label>
+                  <input type="number"  placeholder="   Search By unitprice.." name="searchUnitPrice" [(ngModel)]="searchUnitPrice" class="form-control" >
+                </div>
+              </div>
+              
+        </div>
+      </div>
+        <div class="container" *ngIf="!opened" style="margin-top:5px">
+            <div class="row">
+              <div class="col-md-12">
+                  <div>
+                      <table class="table table-striped ">
+                          <thead class="bg-info">
+                            <th>Product  Name</th>
+                            <th>Quantity</th>
+                            <th>UnitPrice</th>
+                            
+                           
+                         
+                         
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let product of saleList | sales:search:searchProductName:searchQuantity:searchUnitPrice" >
+                          
+                              <td>{{product.Name }}</td> 
+                              <td>{{product.Quantity }}</td>
+                              <td>{{product.UnitPrice }} </td> 
+                             
+                            </tr>
+                          </tbody>
+                      
+                        </table>
+                  </div>
+                  
+                  
+              </div>
+            </div>
+          </div>
+
+          <!-- Advance Search End Here -->
+  <form  #salesFrom="ngForm" (submit)="onSubmit(salesFrom)" *ngIf="formClose" >
+    <div class="customer">
+      <h3>Customer</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Customer</label>
+                    <select (change)="addCId($event.target)" name="CustomerName" #CustomerName="ngModel" [(ngModel)]="service.salesFormData.CustomerName" class="form-control">
+                      <option value=" ">--select--</option>
+                      <option *ngFor="let customer of customerList" value="{{customer.Name}}">{{customer.Name}}</option> 
+                    </select>
+                </div>
+            </div>
+            <input type="hidden" name="CustomerId" #CustomerId="ngModel" [(ngModel)]="service.salesFormData.CustomerId" class="form-control" >
+             
+         
+          
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" name="Date" #Date="ngModel" [(ngModel)]="service.salesFormData.Date" class="form-control" >
+                </div>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Loyality Point</label>
+                    <input type="text" name="LoyalityPoint" #LoyalityPoint="ngModel" [(ngModel)]="service.salesFormData.LoyalityPoint" class="form-control" >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Grand Total</label>
+                    <input type="text" name="GrandTotal" #GrandTotal="ngModel" [(ngModel)]="service.salesFormData.GrandTotal" class="form-control" readonly>
+                </div>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Paid</label>
+                    <input type="text" (keyup)="updatedue()" name="Paid" #Paid="ngModel" [(ngModel)]="service.salesFormData.Paid" class="form-control" >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Due</label>
+                    <input type="text" name="Due" #Due="ngModel" [(ngModel)]="service.salesFormData.Due" class="form-control" readonly >
+                </div>
+            </div>
+          </div>  
+          <div class="form-group">
+              <button type="submit" class="btn btn-success" >Save</button>
+          </div> 
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+         
+          <!-- <app-saledetalis></app-saledetalis>   -->
+      </div>
+    </div>
+    <div class="row" *ngIf="!showTable">
+        <table class="table table-striped ">
+            <thead class="bg-info">
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>UnitPrice</th>
+              <th>Total Price</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of service.salesDetails">
+                <td>{{product.Name}}</td>
+                <td>{{product.Quantity}}</td>
+                <td>{{product.UnitPrice}}</td>
+                <td>{{product.Quantity*product.UnitPrice}}</td>
+  
+              </tr>
+            </tbody>
+        </table>  
+    </div>
+  </form>
+</div>
+
+

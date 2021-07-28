@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Product</label>
+            <input type="text" class="form-control" [(ngModel)]="productSearch" placeholder="Secrch by Product">
+          
+          </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Start Date</label>
+            <input class="form-control" [(ngModel)]="startDateSearch" placeholder="Secrch by StartDate">
+        </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
+              <label>Category</label>
+              <input type="text" class="form-control" [(ngModel)]="categorySearch" placeholder="Secrch by Category">
+          </div>
+         
+      </div>
+      <div class="col-md-6">
+          <div class="form-group">
+              <label>End Date</label>
+              <input class="form-control" [(ngModel)]="endDateSearch" placeholder="Secrch by EndDateSearch">
+          </div>
+      </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-borderless">
+        <thead>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Purchase Quantity</th>
+          
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of purchase | stock:productSearch ">
+            <td>{{product.Code}}</td>
+            <td>{{product.Name}}</td>
+            <td>{{product.PurchaseQuantity}}</td>
+            
+          </tr>
+        </tbody>
+      </table>
+      
+</div>

@@ -1,0 +1,64 @@
+<form  #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="PurchaseId" #PurchaseId="ngModel" [(ngModel)]="formData.PurchaseId" class="form-control">
+  <div class="form-group">
+    <label >Products</label>
+    <select  (change)="updateCodeAndPrice($event.target)" name="Name" #Name="ngModel"
+    [class.is-invalid]="formData.Name=='' " [(ngModel)]="formData.Name" class="form-control">
+      <option value=" ">--select--</option>
+      <option *ngFor="let product of service.productList" value="{{product.Name}}">{{product.Name}}</option>
+    </select>
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-6">
+    <label >Code</label>
+     <input type="text" name="Code" #Code="ngModel" [(ngModel)]="formData.Code" class="form-control" readonly> 
+    
+  </div>
+  
+  <div class="form-group">
+      <label >ManuFacture Date</label>
+      <input readonly type="text" name="ManuFactureDate" #ManuFactureDate="ngModel" [(ngModel)]="formData.ManuFactureDate" class="form-control">
+  </div> 
+  </div>
+
+  <div class="form-row">
+      <div class="form-group">
+          <label >Expire Date</label>
+          <input readonly type="text" name="ExpireDate" #ExpireDate="ngModel" [(ngModel)]="formData.ExpireDate" class="form-control">
+      </div>
+    <div class="form-group col-md-6">
+        <label >Purchase Quantity</label>
+        <input  type="text" name="PurchaseQuantity" #PurchaseQuantity="ngModel" [(ngModel)]="formData.PurchaseQuantity" 
+        class="form-control" (keyup)="UpdatePrice()">
+    </div> 
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+        <label >Unit Price</label>
+        <input type="text" name="UnitPrice" #UnitPrice="ngModel" [(ngModel)]="formData.UnitPrice" class="form-control" readonly>
+      </div>
+      
+      <div class="form-group col-md-6">
+          <label >Total Price</label>
+          <input type="text" name="TotalPrice" #TotalPrice="ngModel" [(ngModel)]="formData.TotalPrice" class="form-control" readonly>
+        </div>
+  </div>
+
+  <div class="form-row">
+        <div class="form-group col-md-6">
+            <label >New Cost Price</label>
+            <input type="text" name="NewCostPrice" #NewCostPrice="ngModel" [(ngModel)]="formData.NewCostPrice"class="form-control">
+        </div> 
+        <div class="form-group col-md-6">
+            <label >New MRP</label>
+            <input type="text" name="NewMRP" #NewMRP="ngModel" [(ngModel)]="formData.NewMRP" class="form-control">
+        </div> 
+  </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-danger" [mat-dialog-close]>Cancel</button>
+        </div>
+       
+
+</form>

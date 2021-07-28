@@ -1,0 +1,282 @@
+<div>
+    <div class="row header" style="height:70px; margin-left:10px; margin-right:10px; border-radius: 20px;background-color:white;">
+        <div class="col-md-6" style="padding-top:15px" >
+            <div style=" text-align: center; color: teal;;" *ngIf="showListHeader">
+                <h3 ><b>Supplier List</b></h3>
+            </div>
+            <div style=" text-align: center; color: teal;;" *ngIf="showSrcHeader">
+                <h3 ><b>Supplier Search</b></h3>
+            </div>
+            <div style="text-align: center; color: teal;;" *ngIf="showCrtHeader">
+                <h3 > <b>Supplier Entry</b></h3>
+            </div>
+          </div>
+          <div class="col-md-6"  style="padding-top:15px;">
+            <div class="row" >
+                <div>
+                    <button style="width: 150px;margin-left:4px" class="btn btn-info form-control" *ngIf="showSrcButton" (click)="afterClickSrcButton()" ><i class="fas fa-search"></i></button>
+                </div>  
+                <div>
+                    <button  style="width: 150px;margin-left:4px" class="btn btn-success form-control" *ngIf="showCrtButton" (click)="afterClickCrtButton()"><i class="fas fa-plus-circle"></i></button>
+                </div>   
+                <div>
+                    <button style="width: 150px;margin-left:4px" class="btn btn-warning form-control" *ngIf="showListButton" (click)="afterClickListButton()"><i class="fas fa-th-list"></i></button>
+                </div>
+            </div>
+              
+                  
+          </div>
+               
+               
+     
+        
+       
+     
+     </div>
+    <div class="advanceSearch row" *ngIf="showSrcForm" style="margin-top:18px; " >
+     
+      <div class="col-md-12" *ngIf="showSrcBox" >
+          <div class="row" >
+              <div class="col-md-8" *ngIf="showUSrcBtn">
+                  <div class="col-md-8 search">
+                      <input type="text" placeholder="   Search.." name="search" [(ngModel)]="search" > 
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div>
+                      <button style="width: 200px;margin-left:4px" class="btn btn-info form-control"  (click)="afterClickAdbtn()" ><i class="fas fa-arrow-circle-down"></i> Advance Search <i class="fas fa-arrow-circle-down"></i></button>
+                  </div>  
+              </div>
+            </div>
+      </div>
+     
+      <div class="col-md-12" *ngIf="showSrcAdvance" style="margin-left: 100px;">
+          <form #advanceForm="ngForm" (submit)="srSupplier(advanceForm)">
+              <div class="row" >
+                <div class="col-md-6">
+                  
+                    <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Search By Code"   name="Code" [(ngModel)]="Code" >
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    
+                    <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Search By Name"   name="Name" [(ngModel)]="Name" >
+                    </mat-form-field>
+                  </div>  
+                </div>
+              </div>
+              <div class="row" >
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Search By Email"   name="Email" [(ngModel)]="Email" >
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-6">
+                      <div class="form-group">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Search By Address"   name="Address" [(ngModel)]="Address" >
+                      </mat-form-field>
+                      </div>
+                      </div>
+                  </div>
+              
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Search By Contact"   name="searchContact" [(ngModel)]="searchContact" >
+                      </mat-form-field>
+                      </div>
+                  </div>
+                  
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <button type="submit" class="btn btn-info" (click)="afterClickSrcBtn()">Search</button>
+                </div>
+              </div>
+              </form>
+            </div>
+      
+      
+      </div>
+    
+      <div class="create" *ngIf="showCrtForm" >
+      
+      <br/>
+    <div class="supplierFm">
+      <form #supplierFm="ngForm" autocomplete="off" (submit)="onSubmit(supplierFm)">
+        <input type="hidden" name="Id" #Id="ngModel" [(ngModel)]="_stockManageService.supplierFormData.Id">
+        <div class="row">
+        <div class="form-group col-md-6">
+          
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="Code" name="Code" #Code="ngModel" [(ngModel)]="_stockManageService.supplierFormData.Code" >
+            </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+         
+         <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name"  name="Name" #Name="ngModel" [(ngModel)]="_stockManageService.supplierFormData.Name" >
+          </mat-form-field>
+       </div>
+       
+      </div>
+    
+      <div class="row">
+       <div class="form-group col-md-6">
+      
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email"  name="Email" #Email="ngModel" [(ngModel)]="_stockManageService.supplierFormData.Email" >
+        </mat-form-field>
+      </div>
+      <div class="form-group col-md-6">
+      
+       
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Contact" type="text" name="Contact" #Contact="ngModel" [(ngModel)]="_stockManageService.supplierFormData.Contact" >
+          </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+       
+       
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="ContactPerson"   name="ContactPerson" #ContactPerson="ngModel" [(ngModel)]="_stockManageService.supplierFormData.ContactPerson" >
+          </mat-form-field>
+       </div>
+     <div class="form-group col-md-6">
+       
+     
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Address"  name="Address" #Address="ngModel" [(ngModel)]="_stockManageService.supplierFormData.Address" ></textarea>
+          </mat-form-field>
+      </div>
+      </div>
+      
+    <div >
+      <button type="submit" class="btn btn-success" style="height: 50px; width: 150px; " >Submit</button>
+    </div>
+    <div class="alert alert-success" role="alert" *ngIf="successMsg">
+      <!-- <a class="close" data-dismiss="alert" (click)="hideSuccessMsg()"></a> -->
+      <button (click)="hideSuccessMsg()">&times;</button>
+        This is a success alert—check it out!
+      </div>
+      </form>
+       
+    </div>
+      
+    </div>
+
+    
+     
+     
+   </div>
+   <div class="row" style="margin-top:10px;" *ngIf="showListTb">
+        <div class="col-md-12" >
+          
+           <div class="row">
+            <div class="col-md-10">
+                <table class="table table-striped ">
+                    <thead class="bg-info">
+                      <th>Serial</th>
+                      <th>Code</th>
+                      <th>Name</th>
+                      <th>Address</th>
+                      <th>Email</th>
+                      <th>Contact</th>
+                      <th>LoyalityPoint</th>
+                      <th>Action</th>
+                     
+                   
+                   
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let i=index;let customer of _stockManageService.supplierList |supplier:search| paginate:{itemsPerPage:itemsPerPage,currentPage:p}">
+                        <td>{{i+1}}</td>
+                        <td  (click)="populatedForm(customer)" *ngIf="!showInuput" (click)="edit()">{{customer.code }}</td> 
+                        <td (click)="populatedForm(customer)" *ngIf="!showInuput" (click)="edit()">{{customer.name }}</td>
+                        <td (click)="populatedForm(customer)" *ngIf="!showInuput" (click)="edit()">{{customer.address }} </td> 
+                        <td (click)="populatedForm(customer)" *ngIf="!showInuput" (click)="edit()">{{customer.email }}</td>
+                        <td (click)="populatedForm(customer)" *ngIf="!showInuput" (click)="edit()">{{customer.contact }} </td>
+                        <td (click)="populatedForm(customer)" *ngIf="!showInuput" (click)="edit()">{{customer.contactPerson }} </td>
+                        <td  *ngIf="!showInuput" >
+                            <!-- <button  (click)="updateCustomer(customer.Id,customer.Code,
+                            customer.Name,customer.Address,customer.Email,customer.Contact,customer.LoyalityPoint)" (click)="afterClEditBtn()">Edit</button>   -->
+                            <button class="btn btn-danger" (click)="populatedForm(customer)"   (click)="onDelete(customer.Id)"><i class="fas fa-trash"></i></button>
+                        </td>
+
+                        <td  class="in" *ngIf="showInuput"><input  type="text" [(ngModel)]="customer.Code" class="form-control"></td>
+                        <td  class="in" *ngIf="showInuput"><input  type="text" [(ngModel)]="customer.Name" class="form-control"></td>
+                        <td  class="in" *ngIf="showInuput"><input  type="textarea" [(ngModel)]="customer.Address" class="form-control"></td>
+                        <td  class="in" *ngIf="showInuput"><input  type="text" [(ngModel)]="customer.Email" class="form-control"></td>
+                        <td  class="in" *ngIf="showInuput"><input  type="text" [(ngModel)]="customer.Contact" class="form-control"></td>
+                        <td  class="in" *ngIf="showInuput"><input  type="text" [(ngModel)]="customer.ContactPerson" class="form-control"></td>
+                        <td  *ngIf="showInuput" >
+                            <button class="btn btn-warning" (click)="updateCustomer(customer.Id,customer.Code,
+                            customer.Name,customer.Address,customer.Email,customer.Contact,customer.LoyalityPoint)" (click)="afterClEditBtn()"><i class="fas fa-pen-square"></i></button>  
+                            <button class="btn btn-danger" (click)="populatedForm(customer)"   (click)="onDelete(customer.Id)"><i class="fas fa-trash"></i></button>
+                        </td>
+                         
+                        
+                      </tr>
+                    </tbody>
+                
+                  </table>
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  
+            </div>
+          </div> 
+            
+        </div>
+    </div> 
+    
+  <br/>
+
+
+
+      <!-- Search table Here -->
+       <div  style="margin-top:5px" *ngIf="showSrcTb">
+          <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <table class="table table-striped ">
+                        <thead class="bg-info">
+                          <th>Code</th>
+                          <th>Name</th>
+                          <th>Address</th>
+                          <th>Email</th>
+                          <th>Contact</th>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let customer of _stockManageService.srSupplierList |paginate: { itemsPerPage:itemsPerPage, currentPage: p}  " >
+                         
+                            <td>{{customer.Code }}</td> 
+                            <td>{{customer.Name }}</td>
+                            <td>{{customer.Address }} </td> 
+                            <td>{{customer.Email }}</td>
+                            <td>{{customer.Contact }} </td>
+                          </tr>
+                      </tbody>
+                    </table>
+                      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+                
+                
+            </div>
+          </div>
+        </div> 
+  
+
+
+
+ 

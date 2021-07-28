@@ -1,0 +1,41 @@
+
+<div class="form-group">
+  <label>Sales </label>
+  <input type="text" class="form-control" name="search" [(ngModel)]="search" placeholder="Secrch by Sales Deatil">
+</div>
+<div class="container" style="margin-top:5px">
+  <div class="row">
+    <div class="col-md-12">
+        <div>
+            <table class="table table-striped ">
+                <thead class="bg-info">
+                  <th>Product Name</th>
+                  <th>Quantity</th>
+                  <th>UnitPrice</th>
+                  
+                 
+               
+               
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of saleList | sales:search" >
+                
+                    <td>{{product.Name }}</td> 
+                    <td>{{product.Quantity }}</td>
+                    <td>{{product.UnitPrice }} </td> 
+                   
+                     
+                    
+                  </tr>
+                </tbody>
+            
+              </table>
+        </div>
+        
+        
+    </div>
+  </div>
+</div>
+
+
+

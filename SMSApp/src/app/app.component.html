@@ -1,0 +1,86 @@
+
+
+<mat-sidenav-container>
+    <mat-sidenav mode="side" [(opened)]="opened">
+        <h5><i style="color: ghostwhite"> Store Management</i></h5>
+        <ul class="navbar-nav">
+            
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="Customer" style="color: white;">Customer</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="Supplier" style="color: white;">Supplier</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="CustomerPage" style="color: white;font-stretch: extra-condensed">Customer</a>
+             </li> 
+          
+            <li class="nav-item">
+              <a class="nav-link" routerLink="Product" style="color: white;" >Product</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" routerLink="Purchase" style="color: white;">Purchase</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="Sales" style="color: white;">Sales</a>
+            </li> -->
+            <!-- <li class="nav-item">
+              <a class="nav-link" routerLink="Stock" style="color: white;">Stock</a>
+            </li>  -->
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="Category" style="color: white;font-stretch: extra-condensed">Category List</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" routerLink="Sale" style="color: white;font-stretch: extra-condensed">Sale List</a>
+            </li>  -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="SaleReport" style="color: white;font-stretch: extra-condensed">Sale Report</a>
+              </li> 
+          
+        </ul>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+  
+  <div class="navbar navbar-expand-sm bg-info navbar-dark">
+      <button class="btn btn-warning" (click)="opened=!opened"> <i class="fas fa-arrows-alt-h"></i> </button> 
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link " style="color: white;" routerLink="Home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="color: white;" routerLink="Contact">Contact</a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link" style="color: white;" routerLink="LogIn">LogIn</a>
+        </li>
+ 
+    </ul>
+    
+    </div>
+    <!-- <div>
+        <img src="src\app\icon\3.gif" alt="" height="42" width="42">
+    </div> -->
+    
+    <hr/>
+    <!-- <div class="home" >
+        <div class="hc">
+           <h1>Welcome to your</h1>
+           <h1>STOER MANAGEMENT</h1>
+        </div>
+     </div> -->
+
+    <router-outlet>
+      
+    </router-outlet>
+     <hr/>
+    <footer style=" height: 40px; width: 100%; background-color:#17A2B8;
+    color: white;
+    text-align: center;">
+            <h6 style="margin-top: 30px;">@copyright by AITS</h6>
+    </footer>
+  </mat-sidenav-content>
+
+  </mat-sidenav-container>
